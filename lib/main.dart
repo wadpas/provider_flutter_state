@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
@@ -37,6 +39,43 @@ class BreadCrumb {
   int get hashCode => uuid.hashCode;
 
   String get title => name + (isActive ? ' > ' : '');
+}
+
+class BreadCrumbProvider extends ChangeNotifier {
+  final List<BreadCrumb> _items = [];
+  UnmodifiableListView<BreadCrumb> get item => UnmodifiableListView(_items);
+
+  void add(BreadCrumb breadCrumb) {
+    for (final item in _items) {
+      item.activate();
+    }
+    _items.add(breadCrumb);
+    notifyListeners();
+  }
+
+  void reset() {
+    _items.clear();
+    notifyListeners();
+  }
+}
+
+class BreadCrumbWidget extends StatelessWidget {
+  final UnmodifiableListView<BreadCrumb> breadCrumb;
+  const BreadCrumbWidget({super.key, required this.breadCrumb});
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      children: breadCrumb.map((breadCrumb) {
+        return Text(
+          breadCrumb.title,
+          style: TextStyle(
+            color: breadCrumb.isActive ? Colors.blueAccent : Colors.black,
+          ),
+        );
+      }).toList(),
+    );
+  }
 }
 
 class HomePage extends StatelessWidget {
