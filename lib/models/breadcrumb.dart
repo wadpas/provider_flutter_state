@@ -1,11 +1,11 @@
 import 'package:uuid/uuid.dart';
 
-class BreadCrumb {
+class Breadcrumb {
   bool isActive;
   final String name;
   final String uuid;
 
-  BreadCrumb({
+  Breadcrumb({
     required this.isActive,
     required this.name,
   }) : uuid = const Uuid().v4();
@@ -15,7 +15,7 @@ class BreadCrumb {
   }
 
   @override
-  bool operator ==(covariant BreadCrumb other) => uuid == other.uuid;
+  bool operator ==(covariant Breadcrumb other) => uuid == other.uuid;
 
   @override
   int get hashCode => uuid.hashCode;

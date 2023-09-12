@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_flutter_state/pages/home.dart';
-import 'package:provider_flutter_state/pages/new.dart';
+import 'package:provider_flutter_state/pages/new_breadcrumb.dart';
 import 'package:provider_flutter_state/provider.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (_) => BreadCrumbProvider(),
+      create: (_) => BreadcrumbProvider(),
       child: MaterialApp(
         title: 'Flutter Provider',
         theme: ThemeData(
@@ -18,7 +18,7 @@ void main() {
         ),
         home: const HomePage(),
         routes: {
-          '/newBreadCrumb': (context) => const NewBreadCrumbPage(),
+          '/newBreadcrumb': (context) => const NewBreadcrumbPage(),
         },
       ),
     ),

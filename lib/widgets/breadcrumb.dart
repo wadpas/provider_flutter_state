@@ -1,20 +1,20 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:provider_flutter_state/model.dart';
+import 'package:provider_flutter_state/models/breadcrumb.dart';
 
-class BreadCrumbWidget extends StatelessWidget {
-  final UnmodifiableListView<BreadCrumb> breadCrumb;
-  const BreadCrumbWidget({super.key, required this.breadCrumb});
+class BreadcrumbWidget extends StatelessWidget {
+  final UnmodifiableListView<Breadcrumb> breadcrumb;
+  const BreadcrumbWidget({super.key, required this.breadcrumb});
 
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      children: breadCrumb.map((breadCrumb) {
+      children: breadcrumb.map((breadcrumb) {
         return Text(
-          breadCrumb.title,
+          breadcrumb.title,
           style: TextStyle(
-            color: breadCrumb.isActive ? Colors.blueAccent : Colors.black,
+            color: breadcrumb.isActive ? Colors.blueAccent : Colors.black,
           ),
         );
       }).toList(),

@@ -1,17 +1,17 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:provider_flutter_state/model.dart';
+import 'package:provider_flutter_state/models/breadcrumb.dart';
 
-class BreadCrumbProvider extends ChangeNotifier {
-  final List<BreadCrumb> _items = [];
-  UnmodifiableListView<BreadCrumb> get items => UnmodifiableListView(_items);
+class BreadcrumbProvider extends ChangeNotifier {
+  final List<Breadcrumb> _items = [];
+  UnmodifiableListView<Breadcrumb> get items => UnmodifiableListView(_items);
 
-  void add(BreadCrumb breadCrumb) {
+  void add(Breadcrumb breadcrumb) {
     for (final item in _items) {
       item.activate();
     }
-    _items.add(breadCrumb);
+    _items.add(breadcrumb);
     notifyListeners();
   }
 

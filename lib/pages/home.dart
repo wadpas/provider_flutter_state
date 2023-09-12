@@ -17,22 +17,22 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Consumer<BreadCrumbProvider>(
+            Consumer<BreadcrumbProvider>(
               builder: (context, value, child) {
-                return BreadCrumbWidget(breadCrumb: value.items);
+                return BreadcrumbWidget(breadcrumb: value.items);
               },
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/newBreadCrumb');
+                Navigator.of(context).pushNamed('/newBreadcrumb');
               },
               child: const Text('New Breadcrumb'),
             ),
             TextButton(
               onPressed: () {
-                context.read<BreadCrumbProvider>().reset();
+                context.read<BreadcrumbProvider>().reset();
               },
-              child: const Text('Reset'),
+              child: const Text('Reset Breadcrumb'),
             ),
           ],
         ),

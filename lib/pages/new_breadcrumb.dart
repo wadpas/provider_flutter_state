@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_flutter_state/model.dart';
+import 'package:provider_flutter_state/models/breadcrumb.dart';
 import 'package:provider_flutter_state/provider.dart';
 
-class NewBreadCrumbPage extends StatefulWidget {
-  const NewBreadCrumbPage({super.key});
+class NewBreadcrumbPage extends StatefulWidget {
+  const NewBreadcrumbPage({super.key});
 
   @override
-  State<NewBreadCrumbPage> createState() => _NewBreadCrumbPageState();
+  State<NewBreadcrumbPage> createState() => _NewBreadcrumbPageState();
 }
 
-class _NewBreadCrumbPageState extends State<NewBreadCrumbPage> {
+class _NewBreadcrumbPageState extends State<NewBreadcrumbPage> {
   late final TextEditingController _controller;
 
   @override
@@ -43,11 +43,11 @@ class _NewBreadCrumbPageState extends State<NewBreadCrumbPage> {
             onPressed: () {
               final text = _controller.text;
               if (text.isNotEmpty) {
-                final breadCrumb = BreadCrumb(
+                final breadcrumb = Breadcrumb(
                   isActive: false,
                   name: text,
                 );
-                context.read<BreadCrumbProvider>().add(breadCrumb);
+                context.read<BreadcrumbProvider>().add(breadcrumb);
                 Navigator.of(context).pop();
               }
             },
