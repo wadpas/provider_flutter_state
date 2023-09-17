@@ -12,7 +12,7 @@ class CheapWidget extends StatelessWidget {
     );
     return Container(
       height: 100,
-      color: Colors.blue,
+      color: Colors.yellow,
       child: Column(children: [
         const Text('Cheap Widget'),
         const Text('Last updated'),
