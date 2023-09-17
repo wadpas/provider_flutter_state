@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_flutter_state/provider.dart';
+import 'package:provider_flutter_state/providers/breadcrumb_provider.dart';
 import 'package:provider_flutter_state/widgets/breadcrumb.dart';
 
 class HomePage extends StatelessWidget {
