@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_flutter_state/providers/object_provider.dart';
+import 'package:provider_flutter_state/objects/providers/object_provider.dart';
 
-class CheapWidget extends StatelessWidget {
-  const CheapWidget({super.key});
+class SmallObjectWidget extends StatelessWidget {
+  const SmallObjectWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cheapObject = context.select<ObjectProvider, CheapObject>(
-      (provider) => provider.cheapObject,
+    final smallObject = context.select<ObjectProvider, SmallObject>(
+      (provider) => provider.smallObject,
     );
     return Container(
       height: 100,
@@ -16,7 +16,7 @@ class CheapWidget extends StatelessWidget {
       child: Column(children: [
         const Text('Cheap Widget'),
         const Text('Last updated'),
-        Text(cheapObject.lastUpdated)
+        Text(smallObject.lastUpdated)
       ]),
     );
   }

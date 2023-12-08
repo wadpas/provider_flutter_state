@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_flutter_state/models/breadcrumb.dart';
-import 'package:provider_flutter_state/providers/breadcrumb_provider.dart';
+import 'package:provider_flutter_state/breadcrumb/models/breadcrumb_model.dart';
+import 'package:provider_flutter_state/breadcrumb/providers/breadcrumb_provider.dart';
 
 class NewBreadcrumbPage extends StatefulWidget {
   const NewBreadcrumbPage({super.key});
