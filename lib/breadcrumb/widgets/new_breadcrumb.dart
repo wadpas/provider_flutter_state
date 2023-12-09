@@ -3,14 +3,19 @@ import 'package:provider/provider.dart';
 import 'package:provider_flutter_state/breadcrumb/models/breadcrumb_model.dart';
 import 'package:provider_flutter_state/breadcrumb/providers/breadcrumb_provider.dart';
 
-class NewBreadcrumbPage extends StatefulWidget {
-  const NewBreadcrumbPage({super.key});
+class NewBreadcrumbWidget extends StatefulWidget {
+  final void Function() toggleFunction;
+
+  const NewBreadcrumbWidget({
+    super.key,
+    required this.toggleFunction,
+  });
 
   @override
-  State<NewBreadcrumbPage> createState() => _NewBreadcrumbPageState();
+  State<NewBreadcrumbWidget> createState() => _NewBreadcrumbWidgetState();
 }
 
-class _NewBreadcrumbPageState extends State<NewBreadcrumbPage> {
+class _NewBreadcrumbWidgetState extends State<NewBreadcrumbWidget> {
   late final TextEditingController _controller;
 
   @override
@@ -27,34 +32,30 @@ class _NewBreadcrumbPageState extends State<NewBreadcrumbPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('New readcrumb'),
-      ),
-      body: Column(
-        children: [
-          TextField(
-            controller: _controller,
-            decoration: const InputDecoration(
-              hintText: "Enter a new Breadcrumb",
-            ),
+    return Column(
+      children: [
+        TextField(
+          controller: _controller,
+          decoration: const InputDecoration(
+            label: Text("New Breadcrumb"),
           ),
-          TextButton(
-            onPressed: () {
-              final text = _controller.text;
-              if (text.isNotEmpty) {
-                final breadcrumb = Breadcrumb(
-                  isActive: false,
-                  name: text,
-                );
-                context.read<BreadcrumbProvider>().add(breadcrumb);
-                Navigator.of(context).pop();
-              }
-            },
-            child: const Text('Add Breadcrumb'),
-          ),
-        ],
-      ),
+        ),
+        TextButton.icon(
+          icon: const Icon(Icons.save_outlined),
+          onPressed: () {
+            final text = _controller.text;
+            if (text.isNotEmpty) {
+              final breadcrumb = Breadcrumb(
+                isActive: false,
+                name: text,
+              );
+              context.read<BreadcrumbProvider>().add(breadcrumb);
+              widget.toggleFunction();
+            }
+          },
+          label: const Text('Save'),
+        ),
+      ],
     );
   }
 }
