@@ -4,21 +4,21 @@ import 'package:provider_flutter_state/breadcrumb/widgets/new_breadcrumb.dart';
 
 import 'breadcrumb_text.dart';
 
-class BreadcrumbWidget extends StatefulWidget {
-  const BreadcrumbWidget({
+class Breadcrumb extends StatefulWidget {
+  const Breadcrumb({
     super.key,
   });
 
   @override
-  State<BreadcrumbWidget> createState() => _BreadcrumbWidgetState();
+  State<Breadcrumb> createState() => _BreadcrumbState();
 }
 
-class _BreadcrumbWidgetState extends State<BreadcrumbWidget> {
-  bool _showNewBreadcrumbWidget = false;
+class _BreadcrumbState extends State<Breadcrumb> {
+  bool _showNewBreadcrumb = false;
 
   void toggleNewBreadcrumb() {
     setState(() {
-      _showNewBreadcrumbWidget = !_showNewBreadcrumbWidget;
+      _showNewBreadcrumb = !_showNewBreadcrumb;
     });
   }
 
@@ -45,13 +45,13 @@ class _BreadcrumbWidgetState extends State<BreadcrumbWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const BreadcrumbText(),
-              if (_showNewBreadcrumbWidget)
-                NewBreadcrumbWidget(
+              if (_showNewBreadcrumb)
+                NewBreadcrumb(
                   toggleFunction: toggleNewBreadcrumb,
                 ),
               Buttons(
                   toggleFunction: toggleNewBreadcrumb,
-                  showNewBreadcrumbWidget: _showNewBreadcrumbWidget),
+                  showNewBreadcrumb: _showNewBreadcrumb),
             ],
           ),
         ),

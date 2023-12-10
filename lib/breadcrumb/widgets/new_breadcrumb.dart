@@ -3,19 +3,19 @@ import 'package:provider/provider.dart';
 import 'package:provider_flutter_state/breadcrumb/models/breadcrumb_model.dart';
 import 'package:provider_flutter_state/breadcrumb/providers/breadcrumb_provider.dart';
 
-class NewBreadcrumbWidget extends StatefulWidget {
+class NewBreadcrumb extends StatefulWidget {
   final void Function() toggleFunction;
 
-  const NewBreadcrumbWidget({
+  const NewBreadcrumb({
     super.key,
     required this.toggleFunction,
   });
 
   @override
-  State<NewBreadcrumbWidget> createState() => _NewBreadcrumbWidgetState();
+  State<NewBreadcrumb> createState() => _NewBreadcrumbState();
 }
 
-class _NewBreadcrumbWidgetState extends State<NewBreadcrumbWidget> {
+class _NewBreadcrumbState extends State<NewBreadcrumb> {
   late final TextEditingController _controller;
 
   @override

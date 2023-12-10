@@ -4,26 +4,26 @@ import 'package:provider_flutter_state/breadcrumb/providers/breadcrumb_provider.
 
 class Buttons extends StatelessWidget {
   final void Function() toggleFunction;
-  final bool showNewBreadcrumbWidget;
+  final bool showNewBreadcrumb;
 
   const Buttons(
       {super.key,
       required this.toggleFunction,
-      required this.showNewBreadcrumbWidget});
+      required this.showNewBreadcrumb});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         TextButton.icon(
-          icon: showNewBreadcrumbWidget
+          icon: showNewBreadcrumb
               ? const Icon(Icons.cancel_outlined)
               : const Icon(Icons.add),
           onPressed: () {
             toggleFunction();
           },
-          label: showNewBreadcrumbWidget
+          label: showNewBreadcrumb
               ? const Text('Cancel')
               : const Text('Add element'),
         ),
