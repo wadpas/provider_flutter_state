@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:provider_flutter_state/breadcrumb/providers/breadcrumb_provider.dart';
+import 'package:provider_flutter_state/breadcrumb/widgets/buttons.dart';
 import 'package:provider_flutter_state/breadcrumb/widgets/new_breadcrumb.dart';
+
+import 'breadcrumb_text.dart';
 
 class BreadcrumbWidget extends StatefulWidget {
   const BreadcrumbWidget({
@@ -43,53 +44,14 @@ class _BreadcrumbWidgetState extends State<BreadcrumbWidget> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Consumer<BreadcrumbProvider>(
-                builder: (context, value, child) {
-                  return Wrap(
-                    children: value.crumbs.map(
-                      (crumb) {
-                        return Text(
-                          crumb.title,
-                          style: TextStyle(
-                            color: crumb.isActive
-                                ? Colors.blueAccent
-                                : Colors.black,
-                          ),
-                        );
-                      },
-                    ).toList(),
-                  );
-                },
-              ),
+              const BreadcrumbText(),
               if (_showNewBreadcrumbWidget)
                 NewBreadcrumbWidget(
                   toggleFunction: toggleNewBreadcrumb,
                 ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton.icon(
-                    icon: _showNewBreadcrumbWidget
-                        ? const Icon(Icons.cancel_outlined)
-                        : const Icon(Icons.add),
-                    onPressed: () {
-                      setState(() {
-                        toggleNewBreadcrumb();
-                      });
-                    },
-                    label: _showNewBreadcrumbWidget
-                        ? const Text('Cancel')
-                        : const Text('Add element'),
-                  ),
-                  TextButton.icon(
-                    icon: const Icon(Icons.delete_outline),
-                    onPressed: () {
-                      context.read<BreadcrumbProvider>().reset();
-                    },
-                    label: const Text('Reset'),
-                  ),
-                ],
-              ),
+              Buttons(
+                  toggleFunction: toggleNewBreadcrumb,
+                  showNewBreadcrumbWidget: _showNewBreadcrumbWidget),
             ],
           ),
         ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_flutter_state/objects/providers/object_provider.dart';
 import 'package:provider_flutter_state/breadcrumb/widgets/breadcrumb.dart';
-import 'package:provider_flutter_state/widgets/cheap_object.dart';
-import 'package:provider_flutter_state/widgets/expensive_object.dart';
+import 'package:provider_flutter_state/widgets/small_object.dart';
+import 'package:provider_flutter_state/widgets/big_object.dart';
 import 'package:provider_flutter_state/widgets/object_provider_id.dart';
 
 class HomePage extends StatelessWidget {

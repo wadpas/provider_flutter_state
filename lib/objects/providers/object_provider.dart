@@ -33,12 +33,12 @@ class ObjectProvider extends ChangeNotifier {
 
   void start() {
     _smallObjectStreamSub =
-        Stream.periodic(const Duration(seconds: 1)).listen((_) {
+        Stream.periodic(const Duration(microseconds: 500)).listen((_) {
       _smallObject = SmallObject();
       notifyListeners();
     });
     _bigObjectStreamSub =
-        Stream.periodic(const Duration(seconds: 5)).listen((_) {
+        Stream.periodic(const Duration(seconds: 2)).listen((_) {
       _bigObject = BigObject();
       notifyListeners();
     });

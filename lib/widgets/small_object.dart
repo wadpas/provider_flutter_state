@@ -7,9 +7,8 @@ class SmallObjectWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final smallObject = context.select<ObjectProvider, SmallObject>(
-      (provider) => provider.smallObject,
-    );
+    final smallObject = context.watch<ObjectProvider>().smallObject;
+
     return Container(
       height: 100,
       color: Colors.yellow,
